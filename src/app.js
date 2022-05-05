@@ -9,6 +9,8 @@ const app = express();
 
 // app.use(express.static(homepath));
 
+const port = process.env.port || 3000;
+
 const pathViews = path.join(__dirname,'../templates/views');
 const pathPartials = path.join(__dirname,'../templates/partials');
 app.set('view engine','hbs');
@@ -46,6 +48,6 @@ app.get('*', (req, res) => {
     res.render('404',{'message':'Page Not Found'});
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up on port 3000.')
 })
